@@ -1,0 +1,25 @@
+{
+  "name": "china-importadores-etl",
+  "version": "1.0.0",
+  "description": "ETL pipeline: Automechanika Shanghai → Penta-Transaction MX → SQL Server",
+  "main": "src/index.js",
+  "engines": { "node": ">=18.0.0" },
+  "scripts": {
+    "start":          "node src/index.js",
+    "cli":            "node src/cli/run.js",
+    "migrate":        "node src/cli/run.js migrate",
+    "migrate:fresh":  "node src/cli/run.js migrate --fresh",
+    "scrape:ams":     "node src/cli/run.js scrape --source automechanika",
+    "scrape:penta":   "node src/cli/run.js scrape --source penta",
+    "pipeline":       "node src/cli/run.js pipeline",
+    "status":         "node src/cli/run.js status"
+  },
+  "dependencies": {
+    "axios":  "^1.7.2",
+    "dotenv": "^16.4.5",
+    "mssql":  "^11.0.1",
+    "xlsx":   "^0.18.5"
+  },
+  "author": "",
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,17 @@
+# Entorno
+.env
+.env.local
+
+# Dependencias
+node_modules/
+
+# Logs generados en runtime
+logs/*.log
+
+# Archivos temporales de descarga
+downloads/
+
+# Editores
+.vscode/
+.idea/
+*.swp
