@@ -220,8 +220,43 @@ async function getStats() {
     return r.recordset[0];
 }
 
+/** Busca el alias de búsqueda para un expositor en name_alias. Devuelve null si no existe. */
+async function getAlias(exhibitorName) {
+    const pool = await getPool();
+    const r = await pool.request()
+        .input('exhibitor_name', sql.NVarChar(300), exhibitorName)
+        .query(`SELECT search_term FROM name_alias WHERE exhibitor_name = @exhibitor_name`);
+    return r.recordset[0]?.search_term ?? null;
+}
+
+/**
+ * Guarda un alias aprendido automáticamente.
+ * Si ya existe un alias 'csv' o 'manual', no lo sobreescribe.
+ * Si ya existe 'learned', incrementa success_count.
+ */
+async function saveLearnedAlias(exhibitorName, searchTerm) {
+    const pool = await getPool();
+    await pool.request()
+        .input('exhibitor_name', sql.NVarChar(300), exhibitorName)
+        .input('search_term',   sql.NVarChar(300), searchTerm)
+        .query(`
+            MERGE name_alias AS tgt
+            USING (SELECT @exhibitor_name AS exhibitor_name) AS src
+                ON tgt.exhibitor_name = src.exhibitor_name
+            WHEN MATCHED AND tgt.source = 'learned' THEN
+                UPDATE SET
+                    search_term   = @search_term,
+                    success_count = success_count + 1,
+                    loaded_at     = GETDATE()
+            WHEN NOT MATCHED THEN
+                INSERT (exhibitor_name, search_term, source, success_count)
+                VALUES (@exhibitor_name, @search_term, 'learned', 1);
+        `);
+}
+
 module.exports = {
     upsertExhibitor, replaceCategories, replaceStands,
     saveSupplierKeys, insertJobLog, saveImports,
     getPendingExhibitors, getStats,
+    getAlias, saveLearnedAlias,
 };

@@ -18,11 +18,13 @@
 const XLSX   = require('xlsx');
 const config = require('../../config');
 const http   = require('../services/httpClient');
-const logger = require('../utils/logger');
+const logger       = require('../utils/logger');
+const nameResolver = require('../utils/nameResolver');
+const repo         = require('../db/repository');
 
 const BASE      = 'https://app.penta-transaction.com/PentaApi';
 const KEY_LOGIN = 'MTMxODIwNDg=';   // 13182048 — solo en /login
-const KEY_API   = 'MTMyMDc3NDQ=';   // 13207744 — /ayuda, /detalle, descarga
+const KEY_API   = 'MTMxODIwNDg=';   // 13207744 — /ayuda, /detalle, descarga
 
 // ── Sesión ────────────────────────────────────────────────────────────────────
 let _accessToken = null;
@@ -71,8 +73,12 @@ async function authHeaders() {
     };
 }
 
-// ── Paso 2: Buscar claves CN ──────────────────────────────────────────────────
-async function buscarClaves(nombre) {
+// ── Paso 2: Buscar claves CN — búsqueda en cascada con aprendizaje ────────────
+// 1. Consulta name_alias en BD para obtener el alias conocido
+// 2. Genera candidatos: alias BD → nombre completo → variantes automáticas
+// 3. Prueba cada candidato en /ayuda hasta obtener claves CN
+// 4. Si el término que funcionó no era el nombre original → guarda como alias aprendido
+async function buscarClavesPorTermino(termino) {
     const resp = await http.post(`${BASE}/ayuda`, {
         pais:         'MX',
         operacion:    'cargasTotalesIngresos',
@@ -81,13 +87,37 @@ async function buscarClaves(nombre) {
         campoCodigo:  'id',
         campoNombre:  'nombre',
         archivoAyuda: '',
-        filtro:       nombre,
+        filtro:       termino,
         tipoBusqueda: 'paises',
         tienePais:    true,
     }, { headers: await authHeaders() });
 
     if (!resp.data?.exito) return [];
     return (resp.data?.datos?.datos ?? []).filter(d => (d.pais ?? '').toUpperCase() === 'CN');
+}
+
+async function buscarClaves(nombre) {
+    // Consultar alias en BD primero
+    const dbAlias    = await repo.getAlias(nombre);
+    const candidates = nameResolver.getSearchCandidates(nombre, dbAlias);
+
+    for (const termino of candidates) {
+        const claves = await buscarClavesPorTermino(termino);
+        if (claves.length > 0) {
+            // Si encontró con un término alternativo → registrar como alias aprendido
+            if (termino.toLowerCase() !== nombre.toLowerCase()) {
+                logger.info(`  fuzzy: "${nombre}" → "${termino}" (${claves.length} claves)`);
+                // Solo guarda si no había alias previo (no sobreescribir csv/manual)
+                if (!dbAlias) {
+                    await repo.saveLearnedAlias(nombre, termino);
+                }
+            }
+            return claves;
+        }
+        await new Promise(r => setTimeout(r, 300));
+    }
+
+    return [];
 }
 
 // ── Paso 3: Solicitar generacion del Excel ────────────────────────────────────
@@ -103,8 +133,7 @@ async function solicitarExcel(clavesCN) {
         limiteOpcionesAyuda: 0, tipoBusqueda: '', tienePais: false,
         ...opts
     });
-
-    const payload = {
+const payload = {
         operativa: {
             pais:                      { clave: 'MX', valor: 'Mexico', pais: '', grupo: '' },
             operacion:                 'cargasTotalesIngresos',
