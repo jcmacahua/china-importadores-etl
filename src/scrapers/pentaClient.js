@@ -21,10 +21,11 @@ const http   = require('../services/httpClient');
 const logger       = require('../utils/logger');
 const nameResolver = require('../utils/nameResolver');
 const repo         = require('../db/repository');
+const { humanDelay } = require('../utils/helpers');
 
 const BASE      = 'https://app.penta-transaction.com/PentaApi';
 const KEY_LOGIN = 'MTMxODIwNDg=';   // 13182048 — solo en /login
-const KEY_API   = 'MTMxODIwNDg=';   // 13207744 — /ayuda, /detalle, descarga
+const KEY_API   = 'MTMyMDc3NDQ=';   // 13207744 — /ayuda, /detalle, descarga
 
 // ── Sesión ────────────────────────────────────────────────────────────────────
 let _accessToken = null;
@@ -114,7 +115,7 @@ async function buscarClaves(nombre) {
             }
             return claves;
         }
-        await new Promise(r => setTimeout(r, 300));
+        await humanDelay(350, 150); // pausa variable entre candidatos
     }
 
     return [];
@@ -133,7 +134,8 @@ async function solicitarExcel(clavesCN) {
         limiteOpcionesAyuda: 0, tipoBusqueda: '', tienePais: false,
         ...opts
     });
-const payload = {
+
+    const payload = {
         operativa: {
             pais:                      { clave: 'MX', valor: 'Mexico', pais: '', grupo: '' },
             operacion:                 'cargasTotalesIngresos',
@@ -395,1494 +397,1494 @@ const payload = {
                 ayuda: emptyAyuda({
                     tipo: 'demandaTabla',
                     datos: [
-    {
-        clave: 'AB',
-        valor: 'Abkhazia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AF',
-        valor: 'Afghanistan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AX',
-        valor: 'Aland Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AL',
-        valor: 'Albania',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DZ',
-        valor: 'Algeria',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AS',
-        valor: 'American Samoa',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AD',
-        valor: 'Andorra',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AO',
-        valor: 'Angola',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AI',
-        valor: 'Anguilla',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AG',
-        valor: 'Antigua and Barbuda',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AR',
-        valor: 'Argentina',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AM',
-        valor: 'Armenia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AW',
-        valor: 'Aruba',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AU',
-        valor: 'Australia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AT',
-        valor: 'Austria',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AZ',
-        valor: 'Azerbaijan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BS',
-        valor: 'Bahamas',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BH',
-        valor: 'Bahrain',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BD',
-        valor: 'Bangladesh',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BB',
-        valor: 'Barbados',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BE',
-        valor: 'Belgium',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BZ',
-        valor: 'Belize',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BJ',
-        valor: 'Benin',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BM',
-        valor: 'Bermuda',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BT',
-        valor: 'Bhutan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BO',
-        valor: 'Bolivia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BA',
-        valor: 'Bosnia and Herzegowina',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BW',
-        valor: 'Botswana',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BV',
-        valor: 'Bouvet Island',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BR',
-        valor: 'Brazil',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IO',
-        valor: 'British Indian Ocean Territory',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VG',
-        valor: 'British Virgin Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BN',
-        valor: 'Brunei Darussalam',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BG',
-        valor: 'Bulgaria',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BF',
-        valor: 'Burkina Faso',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BI',
-        valor: 'Burundi',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BY',
-        valor: 'Byelorussian SSR',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KH',
-        valor: 'Cambodia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CM',
-        valor: 'Cameroon',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CA',
-        valor: 'Canada',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CV',
-        valor: 'Cape Verde',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KY',
-        valor: 'Cayman Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CF',
-        valor: 'Central African Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TD',
-        valor: 'Chad',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CL',
-        valor: 'Chile',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CN',
-        valor: 'China',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CX',
-        valor: 'Christmas Island',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CC',
-        valor: 'Cocos (Keeling) Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CO',
-        valor: 'Colombia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KM',
-        valor: 'Comoros',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CG',
-        valor: 'Congo',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CK',
-        valor: 'Cook Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CR',
-        valor: 'Costa Rica',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CI',
-        valor: 'Cote d`Ivoire',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HR',
-        valor: 'Croatia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CU',
-        valor: 'Cuba',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CY',
-        valor: 'Cyprus',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CZ',
-        valor: 'Czech Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CD',
-        valor: 'Democratic Republic of Congo',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DK',
-        valor: 'Denmark',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DJ',
-        valor: 'Djibouti',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DM',
-        valor: 'Dominica',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DO',
-        valor: 'Dominican Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'EC',
-        valor: 'Ecuador',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'EG',
-        valor: 'Egypt',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SV',
-        valor: 'El Salvador',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GQ',
-        valor: 'Equatorial Guinea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ER',
-        valor: 'Eritrea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PS',
-        valor: 'Est Bank-Cisjordan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'EE',
-        valor: 'Estonia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SZ',
-        valor: 'Eswatini',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ET',
-        valor: 'Ethiopia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FK',
-        valor: 'Falkland Islands (Malvinas)',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FO',
-        valor: 'Faroe Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FJ',
-        valor: 'Fiji',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FI',
-        valor: 'Finland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FR',
-        valor: 'France',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GF',
-        valor: 'French Guiana',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PF',
-        valor: 'French Polynesia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TF',
-        valor: 'French Southern Territories',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GA',
-        valor: 'Gabon',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GM',
-        valor: 'Gambia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GE',
-        valor: 'Georgia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'DE',
-        valor: 'Germany',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GH',
-        valor: 'Ghana',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GI',
-        valor: 'Gibraltar',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GR',
-        valor: 'Greece',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GL',
-        valor: 'Greenland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GD',
-        valor: 'Grenada',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GP',
-        valor: 'Guadeloupe',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GU',
-        valor: 'Guam Guam',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GT',
-        valor: 'Guatemala',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GG',
-        valor: 'Guernesey',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GN',
-        valor: 'Guinea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GW',
-        valor: 'Guinea-bissau',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GY',
-        valor: 'Guyana',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HT',
-        valor: 'Haiti',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HM',
-        valor: 'Heard and Mcdonald Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HN',
-        valor: 'Honduras',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HK',
-        valor: 'Hong-Kong',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'HU',
-        valor: 'Hungary',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IS',
-        valor: 'Iceland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IN',
-        valor: 'India',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ID',
-        valor: 'Indonesia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IR',
-        valor: 'Iran',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IQ',
-        valor: 'Iraq',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IE',
-        valor: 'Ireland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IM',
-        valor: 'Isle of Man',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IL',
-        valor: 'Israel',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'IT',
-        valor: 'Italy',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'JM',
-        valor: 'Jamaica',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'JP',
-        valor: 'Japan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'JE',
-        valor: 'Jersey',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'JO',
-        valor: 'Jordan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KZ',
-        valor: 'Kazakhstan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KE',
-        valor: 'Kenya',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KI',
-        valor: 'Kiribati',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KW',
-        valor: 'Kuwait',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KG',
-        valor: 'Kyrgyzstan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LA',
-        valor: 'Lao People`s Democratic Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LV',
-        valor: 'Latvia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LB',
-        valor: 'Lebanon',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LS',
-        valor: 'Lesotho',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LR',
-        valor: 'Liberia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LY',
-        valor: 'Libyan Arab Jamahiriya',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LI',
-        valor: 'Liechtenstein',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LT',
-        valor: 'Lithuania',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LU',
-        valor: 'Luxembourg',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MO',
-        valor: 'Macao',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MG',
-        valor: 'Madagascar',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MW',
-        valor: 'Malawi',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MY',
-        valor: 'Malaysia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MV',
-        valor: 'Maldives',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ML',
-        valor: 'Mali',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MT',
-        valor: 'Malta',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MH',
-        valor: 'Marshall Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MQ',
-        valor: 'Martinique',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MR',
-        valor: 'Mauritania',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MU',
-        valor: 'Mauritius',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'YT',
-        valor: 'Mayotte',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MX',
-        valor: 'Mexico',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'FM',
-        valor: 'Micronesia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MD',
-        valor: 'Moldova',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MC',
-        valor: 'Monaco',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MN',
-        valor: 'Mongolia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ME',
-        valor: 'Montenegro',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MS',
-        valor: 'Montserrat',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MA',
-        valor: 'Morocco',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MZ',
-        valor: 'Mozambique',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MM',
-        valor: 'Myanmar',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NA',
-        valor: 'Namibia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NR',
-        valor: 'Nauru',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NP',
-        valor: 'Nepal',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NL',
-        valor: 'Netherlands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AN',
-        valor: 'Netherlands Antilles',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NC',
-        valor: 'New Caledonia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NZ',
-        valor: 'New Zealand',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NI',
-        valor: 'Nicaragua',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NE',
-        valor: 'Niger',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NG',
-        valor: 'Nigeria',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NU',
-        valor: 'Niue Island',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NF',
-        valor: 'Norfolk Island',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KP',
-        valor: 'North Korea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MK',
-        valor: 'North Macedonia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MP',
-        valor: 'Northern Mariana Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'NO',
-        valor: 'Norway',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'OM',
-        valor: 'Oman',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PK',
-        valor: 'Pakistan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PW',
-        valor: 'Palau',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PA',
-        valor: 'Panama',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PG',
-        valor: 'Papua New Guinea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PY',
-        valor: 'Paraguay',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PE',
-        valor: 'Peru',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PH',
-        valor: 'Philippines',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PN',
-        valor: 'Pitcairn',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PL',
-        valor: 'Poland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PT',
-        valor: 'Portugal',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PR',
-        valor: 'Puerto Rico',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'QA',
-        valor: 'Qatar',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'RE',
-        valor: 'Reunion',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'RO',
-        valor: 'Romania',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'RU',
-        valor: 'Russian Federation',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'RW',
-        valor: 'Rwanda',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'BL',
-        valor: 'Saint Bartholomew',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SH',
-        valor: 'Saint Helena',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KN',
-        valor: 'Saint Kitts and Nevis',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LC',
-        valor: 'Saint Lucia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'MF',
-        valor: 'Saint-Martin',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'WS',
-        valor: 'Samoa',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SM',
-        valor: 'San Marino',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ST',
-        valor: 'Sao Tome and Principe',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SA',
-        valor: 'Saudi Arabia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SN',
-        valor: 'Senegal',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'RS',
-        valor: 'Serbia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SC',
-        valor: 'Seychelles',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SL',
-        valor: 'Sierra Leone',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SG',
-        valor: 'Singapore',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SK',
-        valor: 'Slovak Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SI',
-        valor: 'Slovenia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SB',
-        valor: 'Solomon Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SO',
-        valor: 'Somalia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ZA',
-        valor: 'South Africa',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GS',
-        valor: 'South Georgia and the South Sandwich Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'KR',
-        valor: 'South Korea',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'OS',
-        valor: 'South Ossetia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SS',
-        valor: 'South Sudan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ES',
-        valor: 'Spain',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'LK',
-        valor: 'Sri Lanka',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'PM',
-        valor: 'St. Pierre and Miquelon',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VC',
-        valor: 'St. Vincent and The Grenadines',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SD',
-        valor: 'Sudan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SR',
-        valor: 'Suriname',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SJ',
-        valor: 'Svalbard and Jan Mayen Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SE',
-        valor: 'Sweden',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'CH',
-        valor: 'Switzerland',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'SY',
-        valor: 'Syrian Arab Republic',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TW',
-        valor: 'Taiwan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TJ',
-        valor: 'Tajikistan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TH',
-        valor: 'Thailand',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TL',
-        valor: 'Timor-Leste',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TG',
-        valor: 'Togo',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TK',
-        valor: 'Tokelau',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TO',
-        valor: 'Tonga',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TT',
-        valor: 'Trinidad and Tobago',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TN',
-        valor: 'Tunisia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TR',
-        valor: 'Turkey',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TM',
-        valor: 'Turkmenistan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TC',
-        valor: 'Turks and Caicos Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TV',
-        valor: 'Tuvalu',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'UG',
-        valor: 'Uganda',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'UA',
-        valor: 'Ukraine',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'AE',
-        valor: 'United Arab Emirates',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'GB',
-        valor: 'United Kingdom',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'TZ',
-        valor: 'United Republic of Tanzania',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'US',
-        valor: 'United States',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'UM',
-        valor: 'United States Minor Outlaying Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VI',
-        valor: 'United States Virgin Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'UY',
-        valor: 'Uruguay',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'UZ',
-        valor: 'Uzbekistan',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VU',
-        valor: 'Vanuatu',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VA',
-        valor: 'Vatican City State (Holy See)',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VE',
-        valor: 'Venezuela',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'VN',
-        valor: 'Vietnam',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'WF',
-        valor: 'Wallis and Futuna Islands',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'EH',
-        valor: 'Western Sahara',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'YE',
-        valor: 'Yemen',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ZM',
-        valor: 'Zambia',
-        pais: '',
-        grupo: ''
-    },
-    {
-        clave: 'ZW',
-        valor: 'Zimbabwe',
-        pais: '',
-        grupo: ''
-    }
+                        {
+                            clave: 'AB',
+                            valor: 'Abkhazia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AF',
+                            valor: 'Afghanistan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AX',
+                            valor: 'Aland Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AL',
+                            valor: 'Albania',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DZ',
+                            valor: 'Algeria',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AS',
+                            valor: 'American Samoa',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AD',
+                            valor: 'Andorra',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AO',
+                            valor: 'Angola',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AI',
+                            valor: 'Anguilla',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AG',
+                            valor: 'Antigua and Barbuda',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AR',
+                            valor: 'Argentina',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AM',
+                            valor: 'Armenia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AW',
+                            valor: 'Aruba',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AU',
+                            valor: 'Australia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AT',
+                            valor: 'Austria',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AZ',
+                            valor: 'Azerbaijan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BS',
+                            valor: 'Bahamas',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BH',
+                            valor: 'Bahrain',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BD',
+                            valor: 'Bangladesh',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BB',
+                            valor: 'Barbados',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BE',
+                            valor: 'Belgium',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BZ',
+                            valor: 'Belize',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BJ',
+                            valor: 'Benin',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BM',
+                            valor: 'Bermuda',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BT',
+                            valor: 'Bhutan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BO',
+                            valor: 'Bolivia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BA',
+                            valor: 'Bosnia and Herzegowina',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BW',
+                            valor: 'Botswana',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BV',
+                            valor: 'Bouvet Island',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BR',
+                            valor: 'Brazil',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IO',
+                            valor: 'British Indian Ocean Territory',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VG',
+                            valor: 'British Virgin Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BN',
+                            valor: 'Brunei Darussalam',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BG',
+                            valor: 'Bulgaria',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BF',
+                            valor: 'Burkina Faso',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BI',
+                            valor: 'Burundi',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BY',
+                            valor: 'Byelorussian SSR',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KH',
+                            valor: 'Cambodia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CM',
+                            valor: 'Cameroon',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CA',
+                            valor: 'Canada',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CV',
+                            valor: 'Cape Verde',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KY',
+                            valor: 'Cayman Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CF',
+                            valor: 'Central African Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TD',
+                            valor: 'Chad',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CL',
+                            valor: 'Chile',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CN',
+                            valor: 'China',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CX',
+                            valor: 'Christmas Island',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CC',
+                            valor: 'Cocos (Keeling) Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CO',
+                            valor: 'Colombia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KM',
+                            valor: 'Comoros',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CG',
+                            valor: 'Congo',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CK',
+                            valor: 'Cook Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CR',
+                            valor: 'Costa Rica',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CI',
+                            valor: 'Cote d`Ivoire',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HR',
+                            valor: 'Croatia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CU',
+                            valor: 'Cuba',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CY',
+                            valor: 'Cyprus',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CZ',
+                            valor: 'Czech Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CD',
+                            valor: 'Democratic Republic of Congo',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DK',
+                            valor: 'Denmark',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DJ',
+                            valor: 'Djibouti',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DM',
+                            valor: 'Dominica',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DO',
+                            valor: 'Dominican Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'EC',
+                            valor: 'Ecuador',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'EG',
+                            valor: 'Egypt',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SV',
+                            valor: 'El Salvador',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GQ',
+                            valor: 'Equatorial Guinea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ER',
+                            valor: 'Eritrea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PS',
+                            valor: 'Est Bank-Cisjordan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'EE',
+                            valor: 'Estonia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SZ',
+                            valor: 'Eswatini',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ET',
+                            valor: 'Ethiopia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FK',
+                            valor: 'Falkland Islands (Malvinas)',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FO',
+                            valor: 'Faroe Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FJ',
+                            valor: 'Fiji',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FI',
+                            valor: 'Finland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FR',
+                            valor: 'France',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GF',
+                            valor: 'French Guiana',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PF',
+                            valor: 'French Polynesia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TF',
+                            valor: 'French Southern Territories',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GA',
+                            valor: 'Gabon',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GM',
+                            valor: 'Gambia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GE',
+                            valor: 'Georgia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'DE',
+                            valor: 'Germany',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GH',
+                            valor: 'Ghana',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GI',
+                            valor: 'Gibraltar',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GR',
+                            valor: 'Greece',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GL',
+                            valor: 'Greenland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GD',
+                            valor: 'Grenada',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GP',
+                            valor: 'Guadeloupe',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GU',
+                            valor: 'Guam Guam',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GT',
+                            valor: 'Guatemala',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GG',
+                            valor: 'Guernesey',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GN',
+                            valor: 'Guinea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GW',
+                            valor: 'Guinea-bissau',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GY',
+                            valor: 'Guyana',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HT',
+                            valor: 'Haiti',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HM',
+                            valor: 'Heard and Mcdonald Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HN',
+                            valor: 'Honduras',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HK',
+                            valor: 'Hong-Kong',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'HU',
+                            valor: 'Hungary',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IS',
+                            valor: 'Iceland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IN',
+                            valor: 'India',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ID',
+                            valor: 'Indonesia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IR',
+                            valor: 'Iran',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IQ',
+                            valor: 'Iraq',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IE',
+                            valor: 'Ireland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IM',
+                            valor: 'Isle of Man',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IL',
+                            valor: 'Israel',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'IT',
+                            valor: 'Italy',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'JM',
+                            valor: 'Jamaica',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'JP',
+                            valor: 'Japan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'JE',
+                            valor: 'Jersey',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'JO',
+                            valor: 'Jordan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KZ',
+                            valor: 'Kazakhstan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KE',
+                            valor: 'Kenya',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KI',
+                            valor: 'Kiribati',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KW',
+                            valor: 'Kuwait',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KG',
+                            valor: 'Kyrgyzstan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LA',
+                            valor: 'Lao People`s Democratic Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LV',
+                            valor: 'Latvia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LB',
+                            valor: 'Lebanon',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LS',
+                            valor: 'Lesotho',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LR',
+                            valor: 'Liberia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LY',
+                            valor: 'Libyan Arab Jamahiriya',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LI',
+                            valor: 'Liechtenstein',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LT',
+                            valor: 'Lithuania',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LU',
+                            valor: 'Luxembourg',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MO',
+                            valor: 'Macao',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MG',
+                            valor: 'Madagascar',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MW',
+                            valor: 'Malawi',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MY',
+                            valor: 'Malaysia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MV',
+                            valor: 'Maldives',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ML',
+                            valor: 'Mali',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MT',
+                            valor: 'Malta',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MH',
+                            valor: 'Marshall Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MQ',
+                            valor: 'Martinique',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MR',
+                            valor: 'Mauritania',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MU',
+                            valor: 'Mauritius',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'YT',
+                            valor: 'Mayotte',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MX',
+                            valor: 'Mexico',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'FM',
+                            valor: 'Micronesia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MD',
+                            valor: 'Moldova',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MC',
+                            valor: 'Monaco',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MN',
+                            valor: 'Mongolia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ME',
+                            valor: 'Montenegro',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MS',
+                            valor: 'Montserrat',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MA',
+                            valor: 'Morocco',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MZ',
+                            valor: 'Mozambique',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MM',
+                            valor: 'Myanmar',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NA',
+                            valor: 'Namibia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NR',
+                            valor: 'Nauru',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NP',
+                            valor: 'Nepal',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NL',
+                            valor: 'Netherlands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AN',
+                            valor: 'Netherlands Antilles',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NC',
+                            valor: 'New Caledonia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NZ',
+                            valor: 'New Zealand',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NI',
+                            valor: 'Nicaragua',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NE',
+                            valor: 'Niger',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NG',
+                            valor: 'Nigeria',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NU',
+                            valor: 'Niue Island',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NF',
+                            valor: 'Norfolk Island',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KP',
+                            valor: 'North Korea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MK',
+                            valor: 'North Macedonia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MP',
+                            valor: 'Northern Mariana Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'NO',
+                            valor: 'Norway',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'OM',
+                            valor: 'Oman',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PK',
+                            valor: 'Pakistan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PW',
+                            valor: 'Palau',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PA',
+                            valor: 'Panama',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PG',
+                            valor: 'Papua New Guinea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PY',
+                            valor: 'Paraguay',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PE',
+                            valor: 'Peru',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PH',
+                            valor: 'Philippines',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PN',
+                            valor: 'Pitcairn',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PL',
+                            valor: 'Poland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PT',
+                            valor: 'Portugal',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PR',
+                            valor: 'Puerto Rico',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'QA',
+                            valor: 'Qatar',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'RE',
+                            valor: 'Reunion',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'RO',
+                            valor: 'Romania',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'RU',
+                            valor: 'Russian Federation',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'RW',
+                            valor: 'Rwanda',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'BL',
+                            valor: 'Saint Bartholomew',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SH',
+                            valor: 'Saint Helena',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KN',
+                            valor: 'Saint Kitts and Nevis',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LC',
+                            valor: 'Saint Lucia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'MF',
+                            valor: 'Saint-Martin',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'WS',
+                            valor: 'Samoa',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SM',
+                            valor: 'San Marino',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ST',
+                            valor: 'Sao Tome and Principe',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SA',
+                            valor: 'Saudi Arabia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SN',
+                            valor: 'Senegal',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'RS',
+                            valor: 'Serbia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SC',
+                            valor: 'Seychelles',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SL',
+                            valor: 'Sierra Leone',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SG',
+                            valor: 'Singapore',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SK',
+                            valor: 'Slovak Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SI',
+                            valor: 'Slovenia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SB',
+                            valor: 'Solomon Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SO',
+                            valor: 'Somalia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ZA',
+                            valor: 'South Africa',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GS',
+                            valor: 'South Georgia and the South Sandwich Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'KR',
+                            valor: 'South Korea',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'OS',
+                            valor: 'South Ossetia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SS',
+                            valor: 'South Sudan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ES',
+                            valor: 'Spain',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'LK',
+                            valor: 'Sri Lanka',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'PM',
+                            valor: 'St. Pierre and Miquelon',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VC',
+                            valor: 'St. Vincent and The Grenadines',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SD',
+                            valor: 'Sudan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SR',
+                            valor: 'Suriname',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SJ',
+                            valor: 'Svalbard and Jan Mayen Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SE',
+                            valor: 'Sweden',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'CH',
+                            valor: 'Switzerland',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'SY',
+                            valor: 'Syrian Arab Republic',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TW',
+                            valor: 'Taiwan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TJ',
+                            valor: 'Tajikistan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TH',
+                            valor: 'Thailand',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TL',
+                            valor: 'Timor-Leste',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TG',
+                            valor: 'Togo',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TK',
+                            valor: 'Tokelau',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TO',
+                            valor: 'Tonga',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TT',
+                            valor: 'Trinidad and Tobago',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TN',
+                            valor: 'Tunisia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TR',
+                            valor: 'Turkey',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TM',
+                            valor: 'Turkmenistan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TC',
+                            valor: 'Turks and Caicos Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TV',
+                            valor: 'Tuvalu',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'UG',
+                            valor: 'Uganda',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'UA',
+                            valor: 'Ukraine',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'AE',
+                            valor: 'United Arab Emirates',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'GB',
+                            valor: 'United Kingdom',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'TZ',
+                            valor: 'United Republic of Tanzania',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'US',
+                            valor: 'United States',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'UM',
+                            valor: 'United States Minor Outlaying Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VI',
+                            valor: 'United States Virgin Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'UY',
+                            valor: 'Uruguay',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'UZ',
+                            valor: 'Uzbekistan',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VU',
+                            valor: 'Vanuatu',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VA',
+                            valor: 'Vatican City State (Holy See)',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VE',
+                            valor: 'Venezuela',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'VN',
+                            valor: 'Vietnam',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'WF',
+                            valor: 'Wallis and Futuna Islands',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'EH',
+                            valor: 'Western Sahara',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'YE',
+                            valor: 'Yemen',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ZM',
+                            valor: 'Zambia',
+                            pais: '',
+                            grupo: ''
+                        },
+                        {
+                            clave: 'ZW',
+                            valor: 'Zimbabwe',
+                            pais: '',
+                            grupo: ''
+                        }
                     ], base: 'mexico_cargas', tabla: 'PaisISO', 
                     campoCodigo: 'codigo', campoNombre: 'espanol', limiteOpcionesAyuda: 20,
                     tipoBusqueda: 'contains', tienePais: true,
